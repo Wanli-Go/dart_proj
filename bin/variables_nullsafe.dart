@@ -26,9 +26,9 @@ void main(){
   // }
   // // Not run-time exception
 
-  final String anotherImmutableString = '不动如山，$immutableString';
+  final String immutableString_2 = '不动如山，$immutableString';
+  print("A final string contanenated from anther final string $immutableString_2");
 
-  print("A final string contanenated from anther final string $anotherImmutableString");
 
   const int compileTimeConstant = 2;
   // const int anotherCTC = a + 1;
