@@ -11,14 +11,25 @@ class Animal {
   }
 }
 
-class Human extends Animal{
+mixin Sins{
+  List<String> sevenDeadlySins = ["wrath", "greed", "sloth", "pride", "lust", "envy", "gluttony"];
+
+  void listSins(){
+    int index = 1;
+    for(var sin in sevenDeadlySins){
+      print("sin $index: $sin");
+      index++;
+    }
+  }
+}
+
+class Human extends Animal with Sins{
   late String name;
   late bool genderClassificationMethod; // True = Binary, False = Non-binary
 
   Human(this.name, this.genderClassificationMethod); // Unnamed Constructor
-  Human.constructWithCode(String name, bool gender, {required String code}){ // Constructor with a name, ***different from Java***
-    this.genderClassificationMethod = gender;
-    this.name = name;
+  Human.constructWithCode(this.name, this.genderClassificationMethod, {required String code}){ // Constructor with a name, ***different from Java***
+    this.code = code;
   }
 
   @override
@@ -38,6 +49,7 @@ void testClasses() {
     humanCherry.genderClassificationMethod ? "Binary": "Non-Binary"
     }"); // Refer to Ternary Operator below
   print("That human's name: ${humanCherry.name}");  
+  humanCherry.listSins();
 }
 
 void testOperators() {

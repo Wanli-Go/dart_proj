@@ -13,4 +13,11 @@ void main(){
   }
 
   print114514Result(minusFive);
+
+  optionalParamFunction([int? a]){
+    return a??=23;
+  }
+
+  print(optionalParamFunction());
+  print(optionalParamFunction(123));
 }
